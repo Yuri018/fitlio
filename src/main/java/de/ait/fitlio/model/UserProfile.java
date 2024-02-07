@@ -33,4 +33,8 @@ public class UserProfile {
     private int height;
     @Column
     private boolean allowance;
+
+    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+    @JoinColumn(name = "user_id")
+    private User user;
 }

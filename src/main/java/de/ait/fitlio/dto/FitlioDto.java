@@ -12,6 +12,7 @@ import java.util.stream.Collectors;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class FitlioDto {
 
     private Long id;
@@ -22,12 +23,25 @@ public class FitlioDto {
     private LocalDate date;
     private int calorie;
     private int distance;
-    private Fitlio.FitType fitType;
+    private String fitType;
 
     public static FitlioDto from(Fitlio fitlio) {
-        return new FitlioDto(fitlio.getId(), fitlio.getTitle(), fitlio.getDescription()
-                , fitlio.getTimeMinute(), fitlio.getTimeHour(), fitlio.getDate()
-                , fitlio.getCalorie(), fitlio.getDistance(), fitlio.getFitType());
+
+//        return new FitlioDto(fitlio.getId(), fitlio.getTitle(), fitlio.getDescription()
+//                , fitlio.getTimeMinute(), fitlio.getTimeHour(), fitlio.getDate()
+//                , fitlio.getCalorie(), fitlio.getDistance(), fitlio.getFitType());
+
+        return FitlioDto.builder()
+                .id(fitlio.getId())
+                .title(fitlio.getTitle())
+                .description(fitlio.getDescription())
+                .timeMinute(fitlio.getTimeMinute())
+                .timeHour(fitlio.getTimeHour())
+                .date(fitlio.getDate())
+                .calorie(fitlio.getCalorie())
+                .distance(fitlio.getDistance())
+                .fitType(fitlio.getFitType().toString())
+                .build();
     }
 
     public static List<FitlioDto> from(List<Fitlio> fitlios) {

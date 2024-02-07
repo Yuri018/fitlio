@@ -18,7 +18,7 @@ import java.time.LocalDate;
 public class Fitlio {
 
     public enum FitType {
-        CARDIO, CALORIE, POWER, GAME, GENERAL
+        CARDIO, CALORIE, POWER, GAME, GENERAL, STAMINA, OTHER
     }
 
     @Id

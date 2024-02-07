@@ -31,4 +31,8 @@ public class User {
     @Column(nullable = false)
     @Enumerated(value = EnumType.STRING)
     private Role role;
+
+    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+    @JoinColumn(name = "user_profile_id")
+    private UserProfile userProfile;
 }

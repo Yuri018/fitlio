@@ -13,6 +13,7 @@ import java.util.stream.Collectors;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class UserDto {
 
     private Long id;
