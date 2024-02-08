@@ -44,7 +44,7 @@ public class FitlioController {
                             schema = @Schema(implementation = ValidationErrorsDto.class)))
     })
     @PostMapping
-    public ResponseEntity<FitlioDto> addCourse(@RequestBody @Valid NewFitlioDto newFitlio) {
+    public ResponseEntity<FitlioDto> addFitlio(@RequestBody @Valid NewFitlioDto newFitlio) {
         return ResponseEntity
                 .status(HttpStatus.CREATED)
                 .body(fitlioService.addFitlio(newFitlio));
@@ -52,7 +52,7 @@ public class FitlioController {
 
     @Operation(summary = "Getting the Fitlio list", description = "Available to all users")
     @GetMapping
-    public ResponseEntity<List<FitlioDto>> getCourses() {
+    public ResponseEntity<List<FitlioDto>> getFitlios() {
         return ResponseEntity
                 .ok(fitlioService.getAllFitlio());
     }

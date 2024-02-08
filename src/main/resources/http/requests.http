@@ -1,4 +1,4 @@
-### Add Fitlio
+### Adding Fitlio
 
 POST http://localhost:8080/api/fitlio
 Content-Type: application/json
@@ -12,4 +12,23 @@ Content-Type: application/json
   "calorie": 100,
   "distance": 0,
   "fitType": "POWER"
+}
+
+### Getting Fitlio
+
+GET http://localhost:8080/api/fitlio
+
+### Getting Fitlio by ID
+
+GET http://localhost:8080/api/fitlio/1
+
+### Adding a user
+
+POST http://localhost:8080/api/users/addUser
+Content-Type: application/json
+
+{
+  "name": "Juri",
+  "email": "juri@mail.com",
+  "password": "qwerty007"
 }

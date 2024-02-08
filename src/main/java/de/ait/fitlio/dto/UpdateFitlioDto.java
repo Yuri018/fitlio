@@ -1,18 +1,14 @@
 package de.ait.fitlio.dto;
 
+import de.ait.fitlio.model.Fitlio;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.*;
 
 import java.time.LocalDate;
 
 @Data
-@Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
+@Schema(name = "Update Fitlio")
 public class UpdateFitlioDto {
-    public enum FitType {
-        CARDIO, CALORIE, POWER, GAME, GENERAL
-    }
 
 //    private Long id;
     private String title;
@@ -22,5 +18,5 @@ public class UpdateFitlioDto {
     private LocalDate date;
     private int calorie;
     private int distance;
-    private FitType fitType;
+    private Fitlio.FitType fitType;
 }

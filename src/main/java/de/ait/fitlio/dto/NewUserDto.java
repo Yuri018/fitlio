@@ -7,10 +7,6 @@ import jakarta.validation.constraints.Pattern;
 import lombok.*;
 
 @Data
-@Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
 @Schema(name = "User", description = "User info")
 public class NewUserDto {
 

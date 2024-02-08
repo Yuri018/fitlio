@@ -14,6 +14,7 @@ public interface FitlioService {
     FitlioDto getFitlioById(Long fitlioId);
 
     //обновить тренировку
+    FitlioDto updateFitlioById(Long fitlioId);
 
     //удалить
 }
