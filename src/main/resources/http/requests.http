@@ -1,0 +1,15 @@
+### Add Fitlio
+
+POST http://localhost:8080/api/fitlio
+Content-Type: application/json
+
+{
+  "title": "New Fitlio 1",
+  "description": "Strengthen your back muscles",
+  "timeMinute": 30,
+  "timeHour": 1,
+  "date": "2024-03-10",
+  "calorie": 100,
+  "distance": 0,
+  "fitType": "POWER"
+}

@@ -8,10 +8,10 @@ import lombok.*;
 import java.time.LocalDate;
 
 @Data
-@Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
+//@Getter
+//@Setter
+//@AllArgsConstructor
+//@NoArgsConstructor
 public class NewFitlioDto {
 
     public enum FitType {
@@ -54,5 +54,5 @@ public class NewFitlioDto {
 
     @Schema(description = "type of exercises", example = "CARDIO")
     @NotEmpty
-    private FitType fitType;
+    private Fitlio.FitType fitType;
 }

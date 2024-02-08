@@ -7,7 +7,8 @@ import de.ait.fitlio.repository.UserRepository;
 import de.ait.fitlio.service.UserService;
 import lombok.Builder;
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Repository;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,19 +17,22 @@ import static de.ait.fitlio.dto.UserDto.from;
 
 @RequiredArgsConstructor
 @Service
-@Builder
+//@Builder
 public class UserServiceImpl implements UserService {
+
+    //TODO прикрутить PasswordEncoder
+    private final PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
     private final UserRepository userRepository;
 
-    //TODO прикрутить PasswordEncoder
     @Override
     public UserDto addUser(NewUserDto newUser) {
 
         User user = User.builder()
                 .name(newUser.getName())
                 .email(newUser.getEmail())
-                .password(newUser.getPassword())
+                .password(passwordEncoder.encode(newUser.getPassword()))
+//                .password(newUser.getPassword())
                 .role(User.Role.USER)
                 .build();
         userRepository.save(user);
@@ -38,6 +42,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<UserDto> getAllUsers() {
-        return from(userRepository.findAll());
+        List<User> userList = userRepository.findAll();
+        return from(userList);
     }
 }
