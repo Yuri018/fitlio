@@ -49,6 +49,11 @@ public class FitlioServiceImpl implements FitlioService {
         return from(fitlio);
     }
 
+    @Override
+    public FitlioDto updateFitlioById(Long fitlioId) {
+        return null;
+    }
+
     private Fitlio getFitlioOrThrow(Long fitlioId) {
         return fitlioRepository.findById(fitlioId)
                 .orElseThrow(() -> new RestException(HttpStatus.NOT_FOUND, "Fitlio with id <" + fitlioId + "> not found"));

@@ -8,12 +8,9 @@ import lombok.*;
 import java.time.LocalDate;
 
 @Data
-
+@Schema(name = "New User Dto")
 public class NewFitlioDto {
 
-    public enum FitType {
-        CARDIO, CALORIE, POWER, GAME, GENERAL
-    }
     @Schema(description = "Training title", example = "Fitness")
     @NotNull
     @NotBlank

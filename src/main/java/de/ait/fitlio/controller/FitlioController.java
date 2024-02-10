@@ -64,7 +64,7 @@ public class FitlioController {
                             schema = @Schema(implementation = FitlioDto.class))
             ),
             @ApiResponse(responseCode = "404",
-                    description = "Курс не найден",
+                    description = "Fitlio not found",
                     content = @Content(mediaType = "application/json",
                             schema = @Schema(implementation = StandardResponseDto.class)))
     })
