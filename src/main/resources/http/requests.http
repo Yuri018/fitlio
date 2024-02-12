@@ -4,13 +4,13 @@ POST http://localhost:8080/api/fitlio
 Content-Type: application/json
 
 {
-  "title": "New Fitlio 1",
-  "description": "Strengthen your back muscles",
-  "date": "2024-03-10",
-  "timeMinute": 30,
-  "timeHour": 1,
+  "title": "New Fitlio 3",
+  "description": "General training",
+  "date": "2024-03-11",
+  "timeMinute": 25,
+  "timeHour": 0,
   "calorie": 100,
-  "distance": 100,
+  "distance": 1,
   "fitType": "POWER"
 }
 
@@ -20,7 +20,9 @@ GET http://localhost:8080/api/fitlio
 
 ### Getting Fitlio by ID
 
-GET http://localhost:8080/api/fitlio/1
+GET http://localhost:8080/api/fitlio/2
+
+
 
 ### Adding a user
 
@@ -32,3 +34,9 @@ Content-Type: application/json
   "email": "max@mail.com",
   "password": "Qwerty007!"
 }
+
+### Getting all Users
+GET http://localhost:8080/api/user
+
+
+
