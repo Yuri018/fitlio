@@ -6,11 +6,11 @@ Content-Type: application/json
 {
   "title": "New Fitlio 1",
   "description": "Strengthen your back muscles",
+  "date": "2024-03-10",
   "timeMinute": 30,
   "timeHour": 1,
-  "date": "2024-03-10",
   "calorie": 100,
-  "distance": 0,
+  "distance": 100,
   "fitType": "POWER"
 }
 
@@ -24,11 +24,11 @@ GET http://localhost:8080/api/fitlio/1
 
 ### Adding a user
 
-POST http://localhost:8080/api/users/addUser
+POST http://localhost:8080/api/user/addUser
 Content-Type: application/json
 
 {
-  "name": "Juri",
-  "email": "juri@mail.com",
-  "password": "qwerty007"
+  "name": "Max",
+  "email": "max@mail.com",
+  "password": "Qwerty007!"
 }

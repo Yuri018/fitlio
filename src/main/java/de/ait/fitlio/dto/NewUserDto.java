@@ -7,7 +7,7 @@ import jakarta.validation.constraints.Pattern;
 import lombok.*;
 
 @Data
-@Schema(name = "User", description = "User info")
+@Schema(name = "NewUser", description = "User info")
 public class NewUserDto {
 
     @NotNull

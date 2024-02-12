@@ -10,6 +10,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import static de.ait.fitlio.dto.FitlioDto.from;
@@ -27,7 +28,7 @@ public class FitlioServiceImpl implements FitlioService {
                 .description(newFitlio.getDescription())
                 .timeMinute(newFitlio.getTimeMinute())
                 .timeHour(newFitlio.getTimeHour())
-                .date(newFitlio.getDate())
+                .date(LocalDate.parse(newFitlio.getDate()))
                 .calorie(newFitlio.getCalorie())
                 .distance(newFitlio.getDistance())
                 .fitType(newFitlio.getFitType())

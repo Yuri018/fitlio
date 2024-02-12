@@ -26,7 +26,7 @@ import org.springframework.web.bind.annotation.RestController;
         @Tag(name = "Users")
 )
 @RestController
-@RequestMapping("/api/users")
+@RequestMapping("/api/user")
 public class UserController {
 
     private final UserService userService;
@@ -47,7 +47,7 @@ public class UserController {
                             schema = @Schema(implementation = StandardResponseDto.class))),
     })
     @PostMapping("/addUser")
-    public ResponseEntity<UserDto> register(@RequestBody @Valid NewUserDto newUser) {
+    public ResponseEntity<UserDto> addUser(@RequestBody @Valid NewUserDto newUser) {
         return ResponseEntity
                 .status(HttpStatus.CREATED)
                 .body(userService.addUser(newUser));

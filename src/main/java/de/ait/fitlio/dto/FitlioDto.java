@@ -14,11 +14,11 @@ public class FitlioDto {
     private Long id;
     private String title;
     private String description;
-    private int timeMinute;
-    private int timeHour;
-    private LocalDate date;
-    private int calorie;
-    private int distance;
+    private Integer timeMinute;
+    private Integer timeHour;
+    private String date;
+    private Integer calorie;
+    private Integer distance;
     private String fitType;
 
     public static FitlioDto from(Fitlio fitlio) {
@@ -33,7 +33,7 @@ public class FitlioDto {
                 .description(fitlio.getDescription())
                 .timeMinute(fitlio.getTimeMinute())
                 .timeHour(fitlio.getTimeHour())
-                .date(fitlio.getDate())
+                .date(fitlio.getDate().toString())
                 .calorie(fitlio.getCalorie())
                 .distance(fitlio.getDistance())
                 .fitType(fitlio.getFitType().toString())

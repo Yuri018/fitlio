@@ -29,15 +29,15 @@ public class Fitlio {
     @Column(nullable = true, length = 1000)
     private String description;
     @Column
-    private int timeMinute;
+    private Integer timeMinute;
     @Column
-    private int timeHour;
+    private Integer timeHour;
     @Column(nullable = false)
     private LocalDate date;
     @Column
-    private int calorie;
+    private Integer calorie;
     @Column
-    private int distance;
+    private Integer distance;
     @Enumerated(value = EnumType.STRING)
     private FitType fitType;
 }
