@@ -3,7 +3,9 @@ package de.ait.fitlio.service.impl;
 import de.ait.fitlio.dto.NewUserDto;
 import de.ait.fitlio.dto.UserDto;
 import de.ait.fitlio.model.User;
+import de.ait.fitlio.model.UserProfile;
 import de.ait.fitlio.repository.UserRepository;
+import de.ait.fitlio.service.UserProfileService;
 import de.ait.fitlio.service.UserService;
 import lombok.Builder;
 import lombok.RequiredArgsConstructor;
@@ -24,9 +26,10 @@ public class UserServiceImpl implements UserService {
     private final PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
     private final UserRepository userRepository;
+    private final UserProfileService userProfileService;
 
     @Override
-    public UserDto addUser(NewUserDto newUser) {
+    public UserDto saveUser(NewUserDto newUser) {
 
         User user = User.builder()
                 .name(newUser.getName())
@@ -37,7 +40,12 @@ public class UserServiceImpl implements UserService {
                 .build();
         userRepository.save(user);
 
-        return from(user);
+        UserProfile userProfile = userProfileService.createUserProfileForUser(user);
+        user.setUserProfile(userProfile);
+
+        User saveUser = userRepository.save(user);
+
+        return from(saveUser);
     }
 
     @Override

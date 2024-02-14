@@ -4,15 +4,21 @@ POST http://localhost:8080/api/fitlio
 Content-Type: application/json
 
 {
-  "title": "New Fitlio 3",
-  "description": "General training",
-  "date": "2024-03-11",
+  "title": "New Fitlio for Max",
+  "description": "Power",
+  "date": "2024-10-10",
   "timeMinute": 25,
   "timeHour": 0,
   "calorie": 100,
   "distance": 1,
   "fitType": "POWER"
 }
+
+### Login to the site with password encryption
+POST localhost:8080/api/login
+Content-Type: application/x-www-form-urlencoded
+
+username=max@mail.com&password=Qwerty007!
 
 ### Getting Fitlio
 
@@ -26,13 +32,13 @@ GET http://localhost:8080/api/fitlio/2
 
 ### Adding a user
 
-POST http://localhost:8080/api/user/addUser
+POST http://localhost:8080/api/auth/register
 Content-Type: application/json
 
 {
-  "name": "Max",
-  "email": "max@mail.com",
-  "password": "Qwerty007!"
+  "name": "Nils",
+  "email": "nils@mail.com",
+  "password": "Qwerty007!?"
 }
 
 ### Getting all Users

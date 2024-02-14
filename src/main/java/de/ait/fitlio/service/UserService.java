@@ -6,8 +6,11 @@ import de.ait.fitlio.dto.UserDto;
 import java.util.List;
 
 public interface UserService {
-    UserDto addUser(NewUserDto newUser);
+//    UserDto addUser(NewUserDto newUser);
 
     //TODO добавить список пользователей
     List<UserDto> getAllUsers();
+
+    UserDto saveUser(NewUserDto createUser);
 }
+

@@ -25,8 +25,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/fitlio")
 @Tags(value = {
-        @Tag(name = "fitlio"),
-        @Tag(name = "v 0.1")
+        @Tag(name = "fitlio")
 })
 public class FitlioController {
 

@@ -31,30 +31,30 @@ public class UserController {
 
     private final UserService userService;
 
-    @Operation(summary = "User registration", description = "Available to everyone. The default role is USER")
-    @ApiResponses(value = {
-            @ApiResponse(responseCode = "201",
-                    description = "User is registered",
-                    content = @Content(mediaType = "application/json",
-                            schema = @Schema(implementation = UserDto.class))),
-            @ApiResponse(responseCode = "400",
-                    description = "Validation error",
-                    content = @Content(mediaType = "application/json",
-                            schema = @Schema(implementation = ValidationErrorsDto.class))),
-            @ApiResponse(responseCode = "409",
-                    description = "There is already a user with this email",
-                    content = @Content(mediaType = "application/json",
-                            schema = @Schema(implementation = StandardResponseDto.class))),
-    })
-    @PostMapping()
-    public ResponseEntity<UserDto> addUser(@RequestBody @Valid NewUserDto newUser) {
-        return ResponseEntity
-                .status(HttpStatus.CREATED)
-                .body(userService.addUser(newUser));
-    }
+//    @Operation(summary = "User registration", description = "Available to everyone. The default role is USER")
+//    @ApiResponses(value = {
+//            @ApiResponse(responseCode = "201",
+//                    description = "User is registered",
+//                    content = @Content(mediaType = "application/json",
+//                            schema = @Schema(implementation = UserDto.class))),
+//            @ApiResponse(responseCode = "400",
+//                    description = "Validation error",
+//                    content = @Content(mediaType = "application/json",
+//                            schema = @Schema(implementation = ValidationErrorsDto.class))),
+//            @ApiResponse(responseCode = "409",
+//                    description = "There is already a user with this email",
+//                    content = @Content(mediaType = "application/json",
+//                            schema = @Schema(implementation = StandardResponseDto.class))),
+//    })
+//    @PostMapping()
+//    public ResponseEntity<UserDto> addUser(@RequestBody @Valid NewUserDto newUser) {
+//        return ResponseEntity
+//                .status(HttpStatus.CREATED)
+//                .body(userService.saveUser(newUser));
+//    }
 
     @Operation(summary = "Getting the User list", description = "Available for admin only")
-    @GetMapping
+    @GetMapping("/auth/register")
     public ResponseEntity<List<UserDto>> getUsers() {
         return ResponseEntity
                 .ok(userService.getAllUsers());
