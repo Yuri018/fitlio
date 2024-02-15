@@ -20,24 +20,30 @@ public class UserProfile {
 
     // Предварительный обработчик для установки значения по умолчанию перед сохранением
     @PrePersist
-    public void perPersist(){
-        if(dateOfBirth == null){
+    public void perPersist() {
+        if (dateOfBirth == null) {
             dateOfBirth = LocalDate.now().minusYears(40);
         }
-        if (weight == null){
+        if (weight == null) {
             weight = 65.0;
         }
-        if (height == null){
+        if (height == null) {
             height = 170;
+        }
+        if (firstName == null) {
+            firstName = "First name";
+        }
+        if (lastName == null) {
+            lastName = "Last name";
         }
     }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(columnDefinition = "varchar(50) 'First name'")
+    @Column(columnDefinition = "varchar(50)")
     private String firstName;
-    @Column(columnDefinition = "varchar(100) 'Last name'")
+    @Column(columnDefinition = "varchar(100)")
     private String lastName;
     @Column
     private Boolean gender = true;

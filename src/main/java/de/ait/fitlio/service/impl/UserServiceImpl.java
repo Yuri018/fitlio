@@ -2,6 +2,7 @@ package de.ait.fitlio.service.impl;
 
 import de.ait.fitlio.dto.NewUserDto;
 import de.ait.fitlio.dto.UserDto;
+import de.ait.fitlio.exceptions.RestException;
 import de.ait.fitlio.model.User;
 import de.ait.fitlio.model.UserProfile;
 import de.ait.fitlio.repository.UserRepository;
@@ -9,6 +10,7 @@ import de.ait.fitlio.service.UserProfileService;
 import de.ait.fitlio.service.UserService;
 import lombok.Builder;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -30,6 +32,10 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserDto saveUser(NewUserDto newUser) {
+
+        if (userRepository.existsByEmail(newUser.getEmail())){
+            throw new RestException(HttpStatus.CONFLICT, "User with email < " + newUser.getEmail() + " > already exist");
+        }
 
         User user = User.builder()
                 .name(newUser.getName())

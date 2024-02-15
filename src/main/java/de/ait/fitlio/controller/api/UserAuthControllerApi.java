@@ -27,11 +27,11 @@ public interface UserAuthControllerApi {
 
     @Operation(summary = "Register new user", description = "Register new user in application with default role (USER). Available for all")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "User Details",
+            @ApiResponse(responseCode = "201", description = "User Details",
                     content = {
                             @Content(mediaType = "application/json", schema = @Schema(implementation = UserDto.class))
                     }),
-            @ApiResponse(responseCode = "400", description = "User with this email already exists",
+            @ApiResponse(responseCode = "409", description = "User with this email already exists",
                     content = {
                             @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))
                     }),
